@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -la > ls_cwd_content
+grep --after-context=3 'root' /etc/passwd
