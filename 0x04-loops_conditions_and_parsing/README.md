@@ -9,8 +9,11 @@
 * What are files and other comparison operators, and how to use them
 
 ### Resources:
-* [What is difference between Dynamic and Static library](https://www.youtube.com/watch?v=eW5he5uFBNM)
-
+* [Bash scripting cheatsheet](https://devhints.io/bash)
+* [Bash For Loop Examples](https://www.cyberciti.biz/faq/bash-for-loop/)
+* [Bash While Loop Examples](https://www.cyberciti.biz/faq/bash-while-loop/#:~:text=The%20bash%20while%20loop%20is,command%20line%20for%20a%20script.)
+* [Advanced Bash-Scripting Guide](http://tldp.org/LDP/abs/html/index.html)
+* [Make your scripts portable](https://www.cyberciti.biz/tips/finding-bash-perl-python-portably-using-env.html)
 ### Author:
 * Tatiana Orejuela Zapata | [Github](https://github.com/tatsOre)
 
