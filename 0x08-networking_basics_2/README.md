@@ -11,6 +11,7 @@
 * [What is 0.0.0.0](https://en.wikipedia.org/wiki/0.0.0.0)
 * [What is the hosts file/How to Modify and Manage the Hosts File on Linux](https://www.makeuseof.com/tag/modify-manage-hosts-file-linux/)
 * [Netcat examples](https://www.thegeekstuff.com/2012/04/nc-command-examples/)
+* [Linux sed command](https://www.computerhope.com/unix/used.htm)
 
 ### Author:
 * Tatiana Orejuela Zapata | [Github](https://github.com/tatsOre)
