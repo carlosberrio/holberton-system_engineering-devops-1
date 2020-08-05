@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Bash script that configures a new Ubuntu machine: install Nginx, listening on port 80
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo ufw app list
+sudo ufw allow 'Nginx HTTP'
+echo "Holberton School" > /var/www/html/index.html
