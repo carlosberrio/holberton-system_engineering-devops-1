@@ -2,10 +2,13 @@
 # Bash script that configures a new Ubuntu machine: install Nginx, listening on port 80
 # When querying Nginx at its root / with a GET request (requesting a page) using curl,
 # it must return a page that contains the string Holberton School
+# /redirect_me is redirecting to another page -> https://www.youtube.com/watch?v=QH2-TGUlwu4
+# The redirection must be a “301 Moved Permanently”
 
 sudo apt-get -y update
 sudo apt-get -y install nginx
 sudo ufw app list
 sudo ufw allow 'Nginx HTTP'
-echo "Holberton School" > /var/www/html/index.html
+sudo echo "Holberton School" > /var/www/html/index.html
+sudo sed -i "/server_name _;/ a\\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-available/default
 sudo service nginx start
