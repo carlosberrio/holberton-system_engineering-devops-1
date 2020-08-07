@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Enable port 8080 in apache web server
+service apache2 restart
