@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Bash script that configures a new Ubuntu machine: install Nginx, listening on port 80
+# /redirect_me -> https://www.youtube.com/watch?v=QH2-TGUlwu4 “301 Moved Permanently”
+# Configures Nginx server to have a custom 404 page and returns an HTTP 404 error code
+# Configures HTTP response with custom header (X-Served-By -> HOSTNAME)
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo ufw app list
+sudo ufw allow 'Nginx HTTP'
+echo "Holberton School" | sudo tee /var/www/html/index.html
+sudo sed -i "/server_name _;/ a\\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-available/default
+echo "Ceci n'est pas une page." | sudo tee /var/www/html/custom_404.html
+sudo sed -i '/listen 80 default_server/ a\ \terror_page 404 /custom_404.html;' /etc/nginx/sites-available/default
+sudo sed -i "/http {/ a\\\tadd_header X-Served-By \$HOSTNAME;" /etc/nginx/nginx.conf
+sudo service nginx restart

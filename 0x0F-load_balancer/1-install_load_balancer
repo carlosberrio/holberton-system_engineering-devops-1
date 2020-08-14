@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Enable a dedicated PPA 
+apt-get -y install software-properties-common
+add-apt-repository -y ppa:vbernat/haproxy-1.7
+apt-get -y update
+# HAProxy server install:
+apt-get -y install haproxy=1.7.\*
+# Enable HAProxy to be started by the init script:
+sed -i "s/ENABLED=0/ENABLED=1/" /etc/default/haproxy
+# Configure load balancer:
+CONFIG="\
+frontend 1626-web
+    bind *:80
+    mode http
+    default_backend web_servers
+    
+backend web_servers
+    balance roundrobin
+    server 1626-web-01 35.229.36.239:80 check
+    server 1626-web-02 54.157.244.143:80 check
+"
+echo "$CONFIG" >> /etc/haproxy/haproxy.cfg
+service haproxy restart
