@@ -25,7 +25,7 @@ file_line { 'HTTP header':
   ensure => present,
   path   => '/etc/nginx/nginx.conf',
   after  => 'http {',
-  line   => 'X-Served-By \$HOSTNAME;'
+  line   => 'X-Served-By $HOSTNAME;'
 }
 
 service { 'nginx':
