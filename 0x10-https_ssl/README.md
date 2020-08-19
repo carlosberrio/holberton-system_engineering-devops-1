@@ -8,7 +8,7 @@
 ### Resources:
 * [What is HTTPS?](https://www.instantssl.com/http-vs-https)
 * [Why SSL? The Purpose of using SSL Certificates](https://www.sslshopper.com/why-ssl-the-purpose-of-using-ssl-certificates.html)
-*[SSL Termination](https://avinetworks.com/glossary/ssl-termination/)
+* [SSL Termination](https://avinetworks.com/glossary/ssl-termination/)
 
 ### Author:
 * Tatiana Orejuela Zapata | [Github](https://github.com/tatsOre)
