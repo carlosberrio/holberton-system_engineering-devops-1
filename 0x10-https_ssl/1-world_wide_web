@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Display info: subdomain [SUB_DOMAIN] is a [RECORD_TYPE] record and points to [DESTINATION]
+
+display_records(){
+    dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | tail -1 | awk '{printf "The subdomain %s is a %s record and points to %s\n", subdomain, $4, $5}' subdomain="$2"
+}
+
+if [ "$2" ]; then
+        display_records "$1" "$2"
+else
+    for subdomain in "www" "lb-01" "web-01" "web-02"; do
+        display_records "$1" "$subdomain"
+    done
+fi
