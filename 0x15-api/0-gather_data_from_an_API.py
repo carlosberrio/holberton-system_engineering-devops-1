@@ -18,7 +18,7 @@ if __name__ == "__main__":
         )
     if resp_todos.status_code != 200:
         raise Exception(
-            "Error: {} {}".format(resp_user.status_code, resp_user.reason)
+            "Error: {} {}".format(resp_todos.status_code, resp_todos.reason)
         )
     user = resp_user.json().get('name')
     user_todos = resp_todos.json()
