@@ -14,7 +14,7 @@ def recurse(subreddit, hot_list=[], after=""):
          If no results are found for the given subreddit, will return None."""
 
     base_url = 'https://www.reddit.com/r/'
-    url = "{}{}.json?after={}".format(base_url, subreddit, after)
+    url = "{}{}/hot.json?after={}".format(base_url, subreddit, after)
     headers = {'user-agent': 'holbie1626_t2'}
     response = requests.get(url, headers=headers, allow_redirects=False)
     if response.status_code != 200:
@@ -24,8 +24,8 @@ def recurse(subreddit, hot_list=[], after=""):
     after = data.get('data').get('after')
     posts = data.get('data').get('children')
     if posts:
-        hot_list.extend(post.get('data').get('title') for post in posts)
+        hot_list += [post.get('data').get('title') for post in posts]
     if after:
-        return hot_list + recurse(subreddit, hot_list, after)
+        return recurse(subreddit, hot_list, after)
     else:
         return hot_list
